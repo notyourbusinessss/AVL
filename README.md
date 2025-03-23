@@ -79,25 +79,25 @@ The left Rotation needs to happen when ...
 ```
 or in c++ 
 ```c++
-    // A utility function to left rotate 
-    // subtree rooted with x 
-    static Node leftRotate(Node x) { 
-        Node y = x.right; 
-        Node T2 = y.left; 
+// A utility function to left rotate 
+// subtree rooted with x 
+Node *leftRotate(Node *x) { 
+    Node *y = x->right; 
+    Node *T2 = y->left; 
 
-        // Perform rotation 
-        y.left = x; 
-        x.right = T2; 
+    // Perform rotation 
+    y->left = x; 
+    x->right = T2; 
 
-        // Update heights 
-        x.height = 1 + Math.max(height(x.left),
-                                height(x.right)); 
-        y.height = 1 + Math.max(height(y.left), 
-                                height(y.right)); 
+    // Update heights 
+    x->height = 1 + max(height(x->left), 
+                        height(x->right)); 
+    y->height = 1 + max(height(y->left), 
+                        height(y->right)); 
 
-        // Return new root 
-        return y; 
-    } 
+    // Return new root 
+    return y; 
+}  
 ```
 
 ### Right Rotation
@@ -123,20 +123,25 @@ Function RightRotate(y):
 ```
 which is bassically the same as in c++
 ```c++
-function rightRotate(y):
-    x = y.left           // x is the left child of y
-    T2 = x.right         // T2 is the right subtree of x (can be null)
+// A utility function to right 
+// rotate subtree rooted with y 
+Node *rightRotate(Node *y) { 
+    Node *x = y->left; 
+    Node *T2 = x->right; 
 
-    // Perform rotation
-    x.right = y          // y becomes right child of x
-    y.left = T2          // T2 becomes left child of y
+    // Perform rotation 
+    x->right = y; 
+    y->left = T2; 
 
-    // Update heights (important in AVL trees)
-    y.height = 1 + max(height(y.left), height(y.right))
-    x.height = 1 + max(height(x.left), height(x.right))
+    // Update heights 
+    y->height = 1 + max(height(y->left), 
+                    height(y->right)); 
+    x->height = 1 + max(height(x->left), 
+                        height(x->right)); 
 
-    // Return new root of the subtree
-    return x
+    // Return new root 
+    return x; 
+} 
 ```
 ### Left-Right Rotation
 
