@@ -53,11 +53,26 @@ function isAVL(node):
     // This node is AVL, return true with its height
     return (true, currentHeight)
 ```
+If you want to further calculate here is a non AVL tree :
+```
+        8
+       / \
+      4   15
+     / \
+    1   7
+       /
+      8
+     /
+    5
+```
 
+Calculate it using the previously shown steps.
 ## Rotations 
+An AVL balances itself using what we call 'Rotations', these are a way to rearange to nodes in order to make them have all have a maximum balance factor of 1. Each are applicable in different situations. Here they are :
+### Left Rotation
 
-### 
+### Right Rotation
 
-###
+### Left-Right Rotation
 
-###
+### Right-Left Rotation
