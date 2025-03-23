@@ -72,7 +72,7 @@ An AVL balances itself using what we call 'Rotations', these are a way to rearan
 ### Left Rotation
 The left Rotation needs to happen when ...
 ![](Documents/Left-Rotation.png)
-> This is from [Geeks for Geeks](https://www.geeksforgeeks.org/introduction-to-avl-tree/)
+> Picture from [Geeks for Geeks](https://www.geeksforgeeks.org/introduction-to-avl-tree/)
 #### Pseudocode : 
 ```
 
@@ -93,7 +93,7 @@ void rotateWithLeftChild(AvlNode*& k2) {
 ### Right Rotation
 
 ![](Documents/Right-Rotation.jpg)
-> This is from [Geeks for Geeks](https://www.geeksforgeeks.org/introduction-to-avl-tree/)
+> Picture from [Geeks for Geeks](https://www.geeksforgeeks.org/introduction-to-avl-tree/)
 #### Pseudocode : 
 ```
 Function RightRotate(y):
@@ -111,7 +111,7 @@ Function RightRotate(y):
     // Return new root
     Return x
 ```
-which is bassically the same as in c++
+#### C++
 ```c++
 // Single rotation with right child
 void rotateWithRightChild(AvlNode*& k1) {
@@ -126,12 +126,12 @@ void rotateWithRightChild(AvlNode*& k1) {
 ### Left-Right Rotation
 
 ![](Documents/Left-Right-Rotation.png)
-> This is from [Geeks for Geeks](https://www.geeksforgeeks.org/introduction-to-avl-tree/)
+> Picture from [Geeks for Geeks](https://www.geeksforgeeks.org/introduction-to-avl-tree/)
 #### Pseudocode : 
 ```
 
 ```
-
+#### C++
 ```c++
 // Double rotation: left-right
 void doubleWithLeftChild(AvlNode*& k3) {
@@ -143,11 +143,11 @@ void doubleWithLeftChild(AvlNode*& k3) {
 ### Right-Left Rotation
 
 ![](Documents/Right-left-Rotation.png)
-> This is from [Geeks for Geeks](https://www.geeksforgeeks.org/introduction-to-avl-tree/)
+> Picture from [Geeks for Geeks](https://www.geeksforgeeks.org/introduction-to-avl-tree/)
 #### Pseudocode : 
 ```
 ```
-
+#### C++
 ```c++
 // Double rotation: right-left
 void doubleWithRightChild(AvlNode*& k1) {
