@@ -77,6 +77,28 @@ The left Rotation needs to happen when ...
 ```
 
 ```
+or in c++ 
+```c++
+    // A utility function to left rotate 
+    // subtree rooted with x 
+    static Node leftRotate(Node x) { 
+        Node y = x.right; 
+        Node T2 = y.left; 
+
+        // Perform rotation 
+        y.left = x; 
+        x.right = T2; 
+
+        // Update heights 
+        x.height = 1 + Math.max(height(x.left),
+                                height(x.right)); 
+        y.height = 1 + Math.max(height(y.left), 
+                                height(y.right)); 
+
+        // Return new root 
+        return y; 
+    } 
+```
 
 ### Right Rotation
 
@@ -99,7 +121,23 @@ function rightRotate(y):
     // Return new root of the subtree
     return x
 ```
+or in C++ 
+```c++
+function rightRotate(y):
+    x = y.left           // x is the left child of y
+    T2 = x.right         // T2 is the right subtree of x (can be null)
 
+    // Perform rotation
+    x.right = y          // y becomes right child of x
+    y.left = T2          // T2 becomes left child of y
+
+    // Update heights (important in AVL trees)
+    y.height = 1 + max(height(y.left), height(y.right))
+    x.height = 1 + max(height(x.left), height(x.right))
+
+    // Return new root of the subtree
+    return x
+```
 ### Left-Right Rotation
 
 ![](Documents/Left-Right-Rotation.png)
