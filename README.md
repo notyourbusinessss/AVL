@@ -79,25 +79,15 @@ The left Rotation needs to happen when ...
 ```
 or in c++ 
 ```c++
-// A utility function to left rotate 
-// subtree rooted with x 
-Node *leftRotate(Node *x) { 
-    Node *y = x->right; 
-    Node *T2 = y->left; 
-
-    // Perform rotation 
-    y->left = x; 
-    x->right = T2; 
-
-    // Update heights 
-    x->height = 1 + max(height(x->left), 
-                        height(x->right)); 
-    y->height = 1 + max(height(y->left), 
-                        height(y->right)); 
-
-    // Return new root 
-    return y; 
-}  
+// Single rotation with left child
+void rotateWithLeftChild(AvlNode*& k2) {
+    AvlNode* k1 = k2->left;
+    k2->left = k1->right;
+    k1->right = k2;
+    k2->height = max(height(k2->left), height(k2->right)) + 1;
+    k1->height = max(height(k1->left), k2->height) + 1;
+    k2 = k1;
+}
 ```
 
 ### Right Rotation
@@ -123,25 +113,15 @@ Function RightRotate(y):
 ```
 which is bassically the same as in c++
 ```c++
-// A utility function to right 
-// rotate subtree rooted with y 
-Node *rightRotate(Node *y) { 
-    Node *x = y->left; 
-    Node *T2 = x->right; 
-
-    // Perform rotation 
-    x->right = y; 
-    y->left = T2; 
-
-    // Update heights 
-    y->height = 1 + max(height(y->left), 
-                    height(y->right)); 
-    x->height = 1 + max(height(x->left), 
-                        height(x->right)); 
-
-    // Return new root 
-    return x; 
-} 
+// Single rotation with right child
+void rotateWithRightChild(AvlNode*& k1) {
+    AvlNode* k2 = k1->right;
+    k1->right = k2->left;
+    k2->left = k1;
+    k1->height = max(height(k1->left), height(k1->right)) + 1;
+    k2->height = max(height(k2->right), k1->height) + 1;
+    k1 = k2;
+}
 ```
 ### Left-Right Rotation
 
@@ -152,10 +132,26 @@ Node *rightRotate(Node *y) {
 
 ```
 
+```c++
+// Double rotation: left-right
+void doubleWithLeftChild(AvlNode*& k3) {
+    rotateWithRightChild(k3->left);
+    rotateWithLeftChild(k3);
+}
+```
+
 ### Right-Left Rotation
 
 ![](Documents/Right-left-Rotation.png)
 > This is from [Geeks for Geeks](https://www.geeksforgeeks.org/introduction-to-avl-tree/)
 #### Pseudocode : 
 ```
+```
+
+```c++
+// Double rotation: right-left
+void doubleWithRightChild(AvlNode*& k1) {
+    rotateWithLeftChild(k1->right);
+    rotateWithRightChild(k1);
+}
 ```
