@@ -106,22 +106,22 @@ or in c++
 > This is from [Geeks for Geeks](https://www.geeksforgeeks.org/introduction-to-avl-tree/)
 #### Pseudocode : 
 ```
-function rightRotate(y):
-    x = y.left           // x is the left child of y
-    T2 = x.right         // T2 is the right subtree of x (can be null)
+Function RightRotate(y):
+    x ← y.left
+    T2 ← x.right
 
     // Perform rotation
-    x.right = y          // y becomes right child of x
-    y.left = T2          // T2 becomes left child of y
+    x.right ← y
+    y.left ← T2
 
-    // Update heights (important in AVL trees)
-    y.height = 1 + max(height(y.left), height(y.right))
-    x.height = 1 + max(height(x.left), height(x.right))
+    // Update heights
+    y.height ← 1 + max(Height(y.left), Height(y.right))
+    x.height ← 1 + max(Height(x.left), Height(x.right))
 
-    // Return new root of the subtree
-    return x
+    // Return new root
+    Return x
 ```
-or in C++ 
+which is bassically the same as in c++
 ```c++
 function rightRotate(y):
     x = y.left           // x is the left child of y
