@@ -75,7 +75,16 @@ The left Rotation needs to happen when ...
 > Picture from [Geeks for Geeks](https://www.geeksforgeeks.org/introduction-to-avl-tree/)
 #### Pseudocode : 
 ```
+Procedure rotateWithLeftChild(node k2)
+    k1 ← k2.left
+    k2.left ← k1.right
+    k1.right ← k2
 
+    k2.height ← max(height(k2.left), height(k2.right)) + 1
+    k1.height ← max(height(k1.left), k2.height) + 1
+
+    k2 ← k1
+EndProcedure
 ```
 or in c++ 
 ```c++
@@ -96,20 +105,16 @@ void rotateWithLeftChild(AvlNode*& k2) {
 > Picture from [Geeks for Geeks](https://www.geeksforgeeks.org/introduction-to-avl-tree/)
 #### Pseudocode : 
 ```
-Function RightRotate(y):
-    x ← y.left
-    T2 ← x.right
+Procedure rotateWithLeftChild(node k2)
+    k1 ← k2.left
+    k2.left ← k1.right
+    k1.right ← k2
 
-    // Perform rotation
-    x.right ← y
-    y.left ← T2
+    k2.height ← max(height(k2.left), height(k2.right)) + 1
+    k1.height ← max(height(k1.left), k2.height) + 1
 
-    // Update heights
-    y.height ← 1 + max(Height(y.left), Height(y.right))
-    x.height ← 1 + max(Height(x.left), Height(x.right))
-
-    // Return new root
-    Return x
+    k2 ← k1
+EndProcedure
 ```
 #### C++
 ```c++
@@ -129,7 +134,10 @@ void rotateWithRightChild(AvlNode*& k1) {
 > Picture from [Geeks for Geeks](https://www.geeksforgeeks.org/introduction-to-avl-tree/)
 #### Pseudocode : 
 ```
-
+Procedure doubleWithLeftChild(node k3)
+    rotateWithRightChild(k3.left)
+    rotateWithLeftChild(k3)
+EndProcedure
 ```
 #### C++
 ```c++
@@ -146,6 +154,10 @@ void doubleWithLeftChild(AvlNode*& k3) {
 > Picture from [Geeks for Geeks](https://www.geeksforgeeks.org/introduction-to-avl-tree/)
 #### Pseudocode : 
 ```
+Procedure doubleWithRightChild(node k1)
+    rotateWithLeftChild(k1.right)
+    rotateWithRightChild(k1)
+EndProcedure
 ```
 #### C++
 ```c++
