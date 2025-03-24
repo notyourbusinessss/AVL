@@ -1,5 +1,5 @@
 # AVL
-Making an AVL tree in c++
+Making an AVL tree in c++ and understanding how it works.
 
 ## what is an AVL 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An AVL tree is a self balancing tree, where the difference of the right subtrees and left subtrees cannot be larger then one, this is found using the Balance factor.
