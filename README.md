@@ -167,3 +167,29 @@ void doubleWithRightChild(AvlNode*& k1) {
     rotateWithRightChild(k1);
 }
 ```
+## Balance 
+Balance is what uses the previously shown rotations in order to re-balance the tree after any action, For example after an insertion which would be done much like a BST tree and then the Balance call would be done.
+
+### Code 
+The code checks for what type of rotation needs to be done and  then calls the appropriate rotation.
+```c++
+// Rebalance the AVL tree node
+void balance(AvlNode*& t) {
+    if (t == nullptr)
+        return;
+
+    if (height(t->left) - height(t->right) > ALLOWED_IMBALANCE) {
+        if (height(t->left->left) >= height(t->left->right))
+            rotateWithLeftChild(t);
+        else
+            doubleWithLeftChild(t);
+    } else if (height(t->right) - height(t->left) > ALLOWED_IMBALANCE) {
+        if (height(t->right->right) >= height(t->right->left))
+            rotateWithRightChild(t);
+        else
+            doubleWithRightChild(t);
+    }
+
+    t->height = max(height(t->left), height(t->right)) + 1;
+}
+```
